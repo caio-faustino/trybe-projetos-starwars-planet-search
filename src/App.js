@@ -1,9 +1,14 @@
+// REQUISITO 01
+
 import React from 'react';
-import './App.css';
+import ProviderApp from './contextos/providerApp';
+import Table from './componentes/tabela';
 
 function App() {
   return (
-    <span>Hello, App!</span>
+    <ProviderApp>
+      <Table />
+    </ProviderApp>
   );
 }
 
