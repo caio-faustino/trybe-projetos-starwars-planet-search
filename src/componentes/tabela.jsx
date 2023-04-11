@@ -50,3 +50,33 @@ export default function Table() {
     };
     setarArrayPorColunas([...ArrayDeColunas, informacaoColuna]);
   };
+
+
+  // REQUISITO 04
+  const deletaApenasUm = (col) => {
+    const arrayDeColunas02 = ArrayDeColunas
+      .filter((index) => index.colunaAtual !== col);
+    setarArrayPorColunas(arrayDeColunas02);
+  };
+  const deletaTudo = () => {
+    setarArrayPorColunas([]);
+  };
+
+
+// REQUISITO 01
+  return (
+    <>
+
+    {/* REQUISITO 01 */}
+      <p>Project Starwars Planets Search</p>
+      <label htmlFor="name">
+        Name
+        <input
+        value={ procurarPlanetaNome }
+        onChange={ lidarProcuraPlanetaNome }
+          data-testid="name-filter"
+          type="text"
+          name="name"
+          
+        />
+      </label>

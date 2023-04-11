@@ -75,3 +75,31 @@ export default function ProvederApp({ children }) {
     // REQUISITO 03
     setarFiltroColuna(filtrosNaoRepetidos);
   }, [ArrayDeColunas]);
+
+    // REQUISITO 01
+    useEffect(() => {
+      fetchData();
+    }, []);
+  
+    // REQUISITO 02
+    useEffect(() => {
+      const filteredByName = procurarPlanetas(planetasFixados);
+      const filteredByColumn = columnFiltered(filteredByName);
+  
+      // REQUISITO 04
+      setarTodosFiltrados(filteredByColumn);
+    }, [procurarPlanetaNome, planetasFixados, ArrayDeColunas]);
+  
+    const exportValues = {
+  
+      // REQUISITO 01
+      procurarPlanetaNome,
+      // REQUISITO 02
+      lidarProcuraPlanetaNome,
+      // REQUISITO 03
+      ArrayDeColunas,
+      setarArrayPorColunas,
+      // REQUISITO 04
+      todosFiltrados,
+      filtroColuna,
+    };
