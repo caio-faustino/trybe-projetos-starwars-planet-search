@@ -76,44 +76,43 @@ export default function ProvederApp({ children }) {
     setarFiltroColuna(filtrosNaoRepetidos);
   }, [ArrayDeColunas]);
 
+  // REQUISITO 01
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // REQUISITO 02
+  useEffect(() => {
+    const filteredByName = procurarPlanetas(planetasFixados);
+    const filteredByColumn = columnFiltered(filteredByName);
+
+    // REQUISITO 04
+    setarTodosFiltrados(filteredByColumn);
+  }, [procurarPlanetaNome, planetasFixados, ArrayDeColunas]);
+
+  const exportValues = {
+
     // REQUISITO 01
-    useEffect(() => {
-      fetchData();
-    }, []);
-  
+    procurarPlanetaNome,
     // REQUISITO 02
-    useEffect(() => {
-      const filteredByName = procurarPlanetas(planetasFixados);
-      const filteredByColumn = columnFiltered(filteredByName);
-  
-      // REQUISITO 04
-      setarTodosFiltrados(filteredByColumn);
-    }, [procurarPlanetaNome, planetasFixados, ArrayDeColunas]);
-  
-    const exportValues = {
-  
-      // REQUISITO 01
-      procurarPlanetaNome,
-      // REQUISITO 02
-      lidarProcuraPlanetaNome,
-      // REQUISITO 03
-      ArrayDeColunas,
-      setarArrayPorColunas,
-      // REQUISITO 04
-      todosFiltrados,
-      filtroColuna,
-    };
+    lidarProcuraPlanetaNome,
+    // REQUISITO 03
+    ArrayDeColunas,
+    setarArrayPorColunas,
+    // REQUISITO 04
+    todosFiltrados,
+    filtroColuna,
+  };
 
-    return (
+  return (
 
-      <ContextoApp.Provider value={ exportValues }>
-        {' '}
-        { children }
-        {' '}
-      </ContextoApp.Provider>
-  
-    );
-  }
-  
-  ProvederApp.propTypes = { children: PropTypes.node }.isRequired;
-  
+    <ContextoApp.Provider value={ exportValues }>
+      {' '}
+      { children }
+      {' '}
+    </ContextoApp.Provider>
+
+  );
+}
+
+ProvederApp.propTypes = { children: PropTypes.node }.isRequired;

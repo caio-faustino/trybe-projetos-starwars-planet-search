@@ -10,7 +10,7 @@ export default function Table() {
     // REQUISITO 02
     lidarProcuraPlanetaNome,
     // REQUISITO 03
-    ArrayDeColunas, 
+    ArrayDeColunas,
     setarArrayPorColunas,
     // REQUISITO 04
     todosFiltrados,
@@ -22,8 +22,7 @@ export default function Table() {
   const [numeroMagico, setValorNum] = useState(0);
   const [colunaAtual, setActualColum] = useState('population');
 
-  
-// REQUISITO 01
+  // REQUISITO 01
   useEffect(() => {
     setActualColum(filtroColuna[0]);
   }, [filtroColuna]);
@@ -39,18 +38,16 @@ export default function Table() {
     setActualComparison(event.target.value);
   };
 
-
-// REQUISITO 03
+  // REQUISITO 03
   const lidarClique = () => {
     const informacaoColuna = {
       numeroMagico,
       colunaAtual,
       comparacaoAtual,
-      
+
     };
     setarArrayPorColunas([...ArrayDeColunas, informacaoColuna]);
   };
-
 
   // REQUISITO 04
   const deletaApenasUm = (col) => {
@@ -62,90 +59,87 @@ export default function Table() {
     setarArrayPorColunas([]);
   };
 
-
-// REQUISITO 01
+  // REQUISITO 01
   return (
     <>
 
-    {/* REQUISITO 01 */}
+      {/* REQUISITO 01 */}
       <p>Project Starwars Planets Search</p>
       <label htmlFor="name">
         Name
         <input
-        value={ procurarPlanetaNome }
-        onChange={ lidarProcuraPlanetaNome }
+          value={ procurarPlanetaNome }
+          onChange={ lidarProcuraPlanetaNome }
           data-testid="name-filter"
           type="text"
           name="name"
-          
+
         />
       </label>
 
-{/* REQUISITO 02 */}
-<label 
-      htmlFor="column-filter">
+      {/* REQUISITO 02 */}
+      <label
+        htmlFor="column-filter"
+      >
         {' '}
         Coluna
         {' '}
         <select
-        value={ colunaAtual }
-        onChange={ lidarVariacaoColunaAtual }
+          value={ colunaAtual }
+          onChange={ lidarVariacaoColunaAtual }
           data-testid="column-filter"
           name="column"
-          
         >
           { filtroColuna.map((colum) => (
             <option
-            value={ colum }
+              value={ colum }
               key={ colum }
-              
             >
               {colum }
             </option>))}
         </select>
       </label>
 
-       {/* REQUISITO 03 */}
+      {/* REQUISITO 03 */}
 
-       <label 
-      htmlFor="comparison-filter">
+      <label
+        htmlFor="comparison-filter"
+      >
         {' '}
         Operador
         {' '}
         <select
-        value={ comparacaoAtual }
-        onChange={ lidarVariacaoComparacaoAtual }
+          value={ comparacaoAtual }
+          onChange={ lidarVariacaoComparacaoAtual }
           data-testid="comparison-filter"
           name="comparison"
-          
         >
           <option>igual a</option>
           <option>maior que</option>
           <option>menor que</option>
-          
+
         </select>
       </label>
 
-
-{/* REQUISITO 04 */}
+      {/* REQUISITO 04 */}
       <label
         htmlFor="value-filter"
       >
         <input
-        value={ numeroMagico }
-        onChange={ lidarVariacaoNum }
+          value={ numeroMagico }
+          onChange={ lidarVariacaoNum }
           data-testid="value-filter"
           name="valorNumerico"
           type="number"
-          
+
         />
       </label>
 
       <button
-      type="button"
-      onClick={ lidarClique }
+        type="button"
+        onClick={ lidarClique }
         data-testid="button-filter"
-        
+
       >
         {' '}
         FILTRAR
@@ -153,10 +147,10 @@ export default function Table() {
       </button>
 
       <button
-      type="button"
-      onClick={ deletaTudo }
+        type="button"
+        onClick={ deletaTudo }
         data-testid="button-remove-filters"
-        
+
       >
         {' '}
         Remover todas filtragens
@@ -184,7 +178,6 @@ export default function Table() {
       }
 
       <hr />
-
 
       {/* REQUISITO 01 */}
 
