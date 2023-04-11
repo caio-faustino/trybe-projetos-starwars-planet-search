@@ -104,3 +104,39 @@ export default function Table() {
             </option>))}
         </select>
       </label>
+
+       {/* REQUISITO 03 */}
+
+       <label 
+      htmlFor="comparison-filter">
+        {' '}
+        Operador
+        {' '}
+        <select
+        value={ comparacaoAtual }
+        onChange={ lidarVariacaoComparacaoAtual }
+          data-testid="comparison-filter"
+          name="comparison"
+          
+        >
+          <option>igual a</option>
+          <option>maior que</option>
+          <option>menor que</option>
+          
+        </select>
+      </label>
+
+
+{/* REQUISITO 04 */}
+      <label
+        htmlFor="value-filter"
+      >
+        <input
+        value={ numeroMagico }
+        onChange={ lidarVariacaoNum }
+          data-testid="value-filter"
+          name="valorNumerico"
+          type="number"
+          
+        />
+      </label>
