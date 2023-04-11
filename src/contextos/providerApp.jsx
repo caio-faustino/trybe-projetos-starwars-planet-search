@@ -103,3 +103,17 @@ export default function ProvederApp({ children }) {
       todosFiltrados,
       filtroColuna,
     };
+
+    return (
+
+      <ContextoApp.Provider value={ exportValues }>
+        {' '}
+        { children }
+        {' '}
+      </ContextoApp.Provider>
+  
+    );
+  }
+  
+  ProvederApp.propTypes = { children: PropTypes.node }.isRequired;
+  

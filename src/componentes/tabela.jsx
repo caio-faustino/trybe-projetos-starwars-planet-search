@@ -80,3 +80,27 @@ export default function Table() {
           
         />
       </label>
+
+{/* REQUISITO 02 */}
+<label 
+      htmlFor="column-filter">
+        {' '}
+        Coluna
+        {' '}
+        <select
+        value={ colunaAtual }
+        onChange={ lidarVariacaoColunaAtual }
+          data-testid="column-filter"
+          name="column"
+          
+        >
+          { filtroColuna.map((colum) => (
+            <option
+            value={ colum }
+              key={ colum }
+              
+            >
+              {colum }
+            </option>))}
+        </select>
+      </label>
