@@ -27,3 +27,26 @@ export default function Table() {
   useEffect(() => {
     setActualColum(filtroColuna[0]);
   }, [filtroColuna]);
+
+  // REQUISITO 04
+  const lidarVariacaoColunaAtual = (event) => {
+    setActualColum(event.target.value);
+  };
+  const lidarVariacaoNum = (event) => {
+    setValorNum(event.target.value);
+  };
+  const lidarVariacaoComparacaoAtual = (event) => {
+    setActualComparison(event.target.value);
+  };
+
+
+// REQUISITO 03
+  const lidarClique = () => {
+    const informacaoColuna = {
+      numeroMagico,
+      colunaAtual,
+      comparacaoAtual,
+      
+    };
+    setarArrayPorColunas([...ArrayDeColunas, informacaoColuna]);
+  };

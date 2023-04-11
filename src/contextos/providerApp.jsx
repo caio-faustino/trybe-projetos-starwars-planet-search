@@ -43,3 +43,35 @@ export default function ProvederApp({ children }) {
   const lidarProcuraPlanetaNome = ({ target }) => {
     setarProcurarPlantaNome(target.value);
   };
+
+  // REQUISITO 03 e // REQUISITO 04
+
+  const columnFiltered = (array) => {
+    let currentArray = array;
+
+    if (ArrayDeColunas.length === 0) return array;
+
+    ArrayDeColunas.forEach((e) => {
+      if (e.comparacaoAtual === 'maior que') {
+        currentArray = currentArray
+          .filter((planet) => Number(planet[e.colunaAtual]) > Number(e.numeroMagico));
+      } else if (e.comparacaoAtual === 'menor que') {
+        currentArray = currentArray
+          .filter((planet) => Number(planet[e.colunaAtual]) < Number(e.numeroMagico));
+      } else if (e.comparacaoAtual === 'igual a') {
+        currentArray = currentArray
+          .filter((planet) => Number(planet[e.colunaAtual]) === Number(e.numeroMagico));
+      }
+    });
+    return currentArray;
+  };
+
+  // REQUISITO 03
+
+  useEffect(() => {
+    const filtrosUsados = ArrayDeColunas.map((filtro) => filtro.colunaAtual);
+    const filtrosNaoRepetidos = filtroColuna
+      .filter((filtro) => !filtrosUsados.includes(filtro));
+    // REQUISITO 03
+    setarFiltroColuna(filtrosNaoRepetidos);
+  }, [ArrayDeColunas]);
