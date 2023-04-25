@@ -1,4 +1,4 @@
-// REQUISITO 01
+// Requisito 01
 
 import { createContext } from 'react';
 

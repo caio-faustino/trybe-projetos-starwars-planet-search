@@ -1,13 +1,32 @@
-// REQUISITO 01
+// Requisito 01
+// Requisito 02
+// Requisito 03
+// Requisito 04
+// Requisito 06
+// Requisito 07
+// Requisito 09
 
 import React from 'react';
-import ProvederApp from './contextos/providerApp';
-import Table from './componentes/tabela';
+import './App.css';
+import ProvedorApp from './context/ProvedorApp';
+import FormFiltros from './components/FormFiltros';
+import FiltrosAplicados from './components/FiltrosAplicados';
 
-function App() {
+import Tabela from './components/Table';
+
+export default function App() {
   return (
-    <ProvederApp><Table /></ProvederApp>
+    <ProvedorApp>
+      {/* Requisito 02
+      Requisito 03
+      Requisito 04
+      Requisito 06
+      Requisito 07
+      Requisito 09 */}
+      <FormFiltros />
+      <FiltrosAplicados />
+      {/* Requisito 01 */}
+      <Tabela />
+    </ProvedorApp>
   );
 }
-
-export default App;
